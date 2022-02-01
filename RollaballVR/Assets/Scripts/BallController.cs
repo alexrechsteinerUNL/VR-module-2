@@ -15,7 +15,7 @@ public class BallController : MonoBehaviour
     public SteamVR_Action_Boolean jumpAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("platformer", "Jump");
 
     //multiplier for ball movement
-    public float forceMult = 2.0f;
+    public float forceMult = 3.0f;
 
     //vertical force to add for jumping
     public float upMult = 250.0f;
