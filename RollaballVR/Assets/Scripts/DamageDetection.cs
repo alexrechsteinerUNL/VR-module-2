@@ -21,6 +21,7 @@ public class DamageDetection : MonoBehaviour
         playerController = ball.GetComponent<PlayerController>();
         startingPosition = transform.position;
         pickupStart = pickup.transform.position;
+        damageText.text = "Damage: 0";
     }
 
     // Update is called once per frame
@@ -47,5 +48,13 @@ public class DamageDetection : MonoBehaviour
             damageTaken += 1;
             damageText.text = "Damage: " + damageTaken.ToString();
 		}
-	}
+
+        if (other.gameObject.CompareTag("chaser"))
+        {
+            damageTaken += 1;
+            damageText.text = "Damage: " + damageTaken.ToString();
+            other.gameObject.transform.Translate(10, 10, 10);
+
+        }
+    }
 }

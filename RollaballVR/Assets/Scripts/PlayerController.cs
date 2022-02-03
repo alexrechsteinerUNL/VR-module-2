@@ -69,6 +69,19 @@ public class PlayerController : MonoBehaviour {
 
 			Clink.Play();
 		}
+
+		if (other.gameObject.CompareTag("chaser"))
+		{
+			other.gameObject.transform.Translate(10, 10, 10);
+
+			// Add one to the score variable 'count'
+			count = count + 1;
+
+			// Run the 'SetCountText()' function (see below)
+			SetCountText();
+
+			Clink.Play();
+		}
 	}
 
         void OnMove(InputValue value)

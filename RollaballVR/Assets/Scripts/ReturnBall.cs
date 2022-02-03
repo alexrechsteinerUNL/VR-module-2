@@ -22,15 +22,17 @@ namespace Valve.VR.InteractionSystem.Sample
 
         void Update()
         {
-            if(interactable != null && interactable.attachedToHand != null)
+            if (Input.GetKey("r") || Input.GetKey("PrimaryIndexTrigger"))
             {
-                transform.position = transform.position;
+                if (interactable != null && interactable.attachedToHand != null)
+                {
+                    transform.position = transform.position;
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
+                }
             }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
-            }
-            
         }
     }
 }
