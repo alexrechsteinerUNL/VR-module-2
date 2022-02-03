@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 		// ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
-		if (other.gameObject.CompareTag ("PickUp"))
+		if (other.gameObject.CompareTag("PickUp"))
 		{
 			other.gameObject.SetActive (false);
 
@@ -96,10 +96,22 @@ public class PlayerController : MonoBehaviour {
 	{
 		countText.text = "Count: " + count.ToString();
 
-		if (count >= 16) 
+		if (count >= 15) 
 		{
-                    // Set the text value of your 'winText'
-                    winTextObject.SetActive(true);
+			// Set the text value of your 'winText'
+			winTextObject.SetActive(true);
+			GameObject[] gameObjectPickup = GameObject.FindGameObjectsWithTag("pickUp");
+			GameObject[] gameObjectChaser = GameObject.FindGameObjectsWithTag("chaser");
+			foreach (GameObject objPickup in gameObjectPickup)
+			{
+				objPickup.SetActive(false);
+			}
+			foreach (GameObject objPickup in gameObjectChaser)
+			{
+				objPickup.SetActive(false);
+			}
+
+
 		}
 	}
 }
