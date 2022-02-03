@@ -22,7 +22,7 @@ namespace Valve.VR.InteractionSystem.Sample
 
         void Update()
         {
-            if (Input.GetKey("r") || Input.GetKey("PrimaryIndexTrigger"))
+            if (Input.GetKey("r"))
             {
                 if (interactable != null && interactable.attachedToHand != null)
                 {
