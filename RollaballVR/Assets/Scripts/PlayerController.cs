@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 		// ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
 		if (other.gameObject.CompareTag ("PickUp"))
 		{
-			other.gameObject.SetActive (false);
+			other.gameObject.SetActive(false);
 
 			// Add one to the score variable 'count'
 			count = count + 1;
@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour {
 			SetCountText ();
 
 			Clink.Play();
+		}
+
+		if (other.gameObject.CompareTag ("Enemy")){
+			count = count + 1;
+			other.gameObject.transform.Translate(10, 10, 10);
 		}
 	}
 
