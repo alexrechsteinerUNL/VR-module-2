@@ -7,22 +7,36 @@ using UnityEngine.SceneManagement;
 public class DamageDetection : MonoBehaviour
 {
 
+    public GameObject pickup;
     public TextMeshProUGUI damageText;
-    private int count;
+    public GameObject ball;
+    private int damageTaken;
+    private PlayerController playerController;
+    private Vector3 pickupStart;
+    private Vector3 startingPosition;
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
+        damageTaken = 0;
+        playerController = ball.GetComponent<PlayerController>();
+        startingPosition = transform.position;
+        pickupStart = pickup.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(count >= 6)
+        playerController.resetCount = false;
+        if (damageTaken > 5)
 		{
-            Time.timeScale = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
+            playerController.resetCount = true;
+            damageTaken = 0;
+            damageText.text = "Damage: " + damageTaken.ToString();
+            pickup.transform.position = pickupStart;
+            transform.position = startingPosition;
+
+            pickup.SetActiveRecursively(true);
+        }
     }
 
 
@@ -30,8 +44,8 @@ public class DamageDetection : MonoBehaviour
 	{
         if (other.gameObject.CompareTag("PickUp"))
 		{
-            count += 1;
-            damageText.text = "Damage: " + count.ToString();
+            damageTaken += 1;
+            damageText.text = "Damage: " + damageTaken.ToString();
 		}
 	}
 }

@@ -196,6 +196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6024194149986223689, guid: d6d28cf389bfb904b967bf6b9b05a50a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6d28cf389bfb904b967bf6b9b05a50a, type: 3}
 --- !u!4 &167512415 stripped
@@ -339,6 +343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90da987ed1496ca40b8704ebd4f2396f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickup: {fileID: 472635365}
+  ball: {fileID: 1949909930}
   damageText: {fileID: 705077117}
 --- !u!1 &342270709
 GameObject:
@@ -1651,7 +1657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &912196804
 Transform:
   m_ObjectHideFlags: 0
@@ -3249,6 +3255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_Round
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013190536940, guid: e7af05fa230061c4da07e8ceda602506, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013914614588, guid: e7af05fa230061c4da07e8ceda602506, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4339,6 +4349,7 @@ MonoBehaviour:
   speed: 10
   countText: {fileID: 1288026981}
   winTextObject: {fileID: 907108404}
+  resetCount: 0
   Clink: {fileID: 0}
 --- !u!114 &1949909938
 MonoBehaviour:

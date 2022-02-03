@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public TextMeshProUGUI countText;
 	public GameObject winTextObject;
+	public bool resetCount;
 
         private float movementX;
         private float movementY;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 	// At the start of the game..
 	void Start ()
 	{
+		resetCount = false;
 		// Assign the Rigidbody component to our private rb variable
 		rb = GetComponent<Rigidbody>();
 
@@ -34,7 +36,15 @@ public class PlayerController : MonoBehaviour {
                 winTextObject.SetActive(false);
 	}
 
-
+	void Update()
+	{
+		if (resetCount == true)
+		{
+			count = 0;
+			Debug.Log("RESET");
+			SetCountText(); 
+		}
+	}
 
 	void FixedUpdate ()
 	{
